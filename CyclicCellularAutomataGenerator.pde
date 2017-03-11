@@ -469,6 +469,12 @@ void setup_dropdown(){
   dl.addItem("Squarish Spirals", 6);
   dl.addItem("Stripes", 7);
   dl.addItem("Imperfect", 8);
+  dl.addItem("Cyclic Spirals", 9);
+  dl.addItem("CCA", 10);
+  dl.addItem("313", 11);
+  dl.addItem("Black vs White", 12);
+  dl.addItem("3-Color Bootstrap", 13);
+  dl.addItem("Fossil Debris", 14);
 }
 
 void controlEvent(ControlEvent theEvent) {
@@ -537,6 +543,48 @@ void controlEvent(ControlEvent theEvent) {
       case 8://Imperfect
         threshold = 2;
         radius = 1;
+        nStates = 4;
+        nbhd = Neighborhood.Moore;
+        g = new CyclicCellularAutomata(cs, n, n, threshold, radius, nStates, nbhd);
+        break;
+        case 9://Cyclic Spirals
+        threshold = 5;
+        radius = 3;
+        nStates = 8;
+        nbhd = Neighborhood.Moore;
+        g = new CyclicCellularAutomata(cs, n, n, threshold, radius, nStates, nbhd);
+        break;
+      case 10://CCA
+        threshold = 1;
+        radius = 1;
+        nStates = 14;
+        nbhd = Neighborhood.VanNeumann;
+        g = new CyclicCellularAutomata(cs, n, n, threshold, radius, nStates, nbhd);  
+        break;
+      case 11://313
+        threshold = 3;
+        radius = 1;
+        nStates = 3;
+        nbhd = Neighborhood.Moore;
+        g = new CyclicCellularAutomata(cs, n, n, threshold, radius, nStates, nbhd);
+        break;
+      case 12://Black vs White
+        threshold = 23;
+        radius = 5;
+        nStates = 2;
+        nbhd = Neighborhood.VanNeumann;
+        g = new CyclicCellularAutomata(cs, n, n, threshold, radius, nStates, nbhd);
+        break;
+      case 13://3-color bootstrap
+        threshold = 11;
+        radius = 2;
+        nStates = 3;
+        nbhd = Neighborhood.Moore;
+        g = new CyclicCellularAutomata(cs, n, n, threshold, radius, nStates, nbhd);
+        break;
+      case 14://Fossil Debris
+        threshold = 9;
+        radius = 2;
         nStates = 4;
         nbhd = Neighborhood.Moore;
         g = new CyclicCellularAutomata(cs, n, n, threshold, radius, nStates, nbhd);
